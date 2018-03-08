@@ -1,0 +1,8 @@
+span > p {
+    font-size: small;
+    margin-bottom: 0;
+}
+
+td > button {
+    background-color: transparent;
+}
