@@ -5,7 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { MatchesModule} from './matches/matches.module';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -13,10 +13,10 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule, 
     NgbModule.forRoot(),
-    MatchesModule
+    MatchesModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

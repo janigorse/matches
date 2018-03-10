@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { MatchService } from '../shared/match.service';
 import { Match } from '../shared/match';
@@ -12,7 +13,11 @@ import { Match } from '../shared/match';
 export class MatchEditComponent implements OnInit {
   match: Match;
 
-  constructor(private route: ActivatedRoute, private matchService: MatchService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private matchService: MatchService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getMatch();
@@ -22,10 +27,17 @@ export class MatchEditComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('Id');
     this.matchService.getMatch(id)
     .subscribe(match => {
-      this.match = match
-      console.log(match);
-    } );
-    
+      this.match = match;
+    }); 
+  }
+
+  save(): void {
+    this.matchService.updateMatch(this.match);
+    this.goBack();
+  }
+
+  goBack(): void {
+    this.router.navigate(['/matches']);
   }
 
 }

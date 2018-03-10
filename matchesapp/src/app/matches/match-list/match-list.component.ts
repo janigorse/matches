@@ -17,6 +17,11 @@ export class MatchListComponent implements OnInit {
 
   ngOnInit() {
     this.getMatches();
+    //this.getMatchesFeed();
+  }
+
+  getMatchesFeed(): void {
+    this.matchService.getMatchesFeed();
   }
 
   getMatches(): void {

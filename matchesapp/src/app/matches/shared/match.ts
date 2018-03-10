@@ -1,14 +1,18 @@
 import { Period } from './period';
 
 export class Match {
-    Id: number;
-    MatchPeriod: string;
-    TeamHome: string;
-    TeamAway: string;
-    SportName: string;
-    CategoryName: string;
-    TournamentName: string;
-    MatchResultHome: number;
-    MatchResultAway: number;
-    Periods: Period[];
+    constructor(
+        public Id: number,
+        public MatchPeriod: string,
+        public TeamHome: string,
+        public TeamAway: string,
+        public SportName: string,
+        public CategoryName: string,
+        public TournamentName: string,
+        public MatchResultHome: number,
+        public MatchResultAway: number,
+        public Periods: Period[]
+        
+    ){}
+    
 }
