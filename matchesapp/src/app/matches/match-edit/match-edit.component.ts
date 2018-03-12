@@ -26,8 +26,8 @@ export class MatchEditComponent implements OnInit {
   getMatch(): void {
     const id = +this.route.snapshot.paramMap.get('Id');
     this.matchService.getMatch(id)
-    .subscribe(match => {
-      this.match = match;
+    .subscribe(matchFromService => {
+      this.match = this.constructNewMatch(matchFromService);
     }); 
   }
 
@@ -38,6 +38,21 @@ export class MatchEditComponent implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/matches']);
+  }
+
+  constructNewMatch(match: Match): Match {
+    let newMatch = new Match();
+    newMatch.Id = match.Id;
+    newMatch.MatchPeriod = match.MatchPeriod;
+    newMatch.TeamHome = match.TeamHome;
+    newMatch.TeamAway = match.TeamAway;
+    newMatch.SportName = match.SportName;
+    newMatch.CategoryName = match.CategoryName;
+    newMatch.TournamentName = match.TournamentName;
+    newMatch.MatchResultHome = match.MatchResultHome;
+    newMatch.MatchResultAway = match.MatchResultAway;
+    newMatch.Periods = match.Periods;
+    return newMatch;
   }
 
 }

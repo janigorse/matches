@@ -14,9 +14,7 @@ export class MatchService {
   configUrl: string = 'https://ls.betradar.com/ls/feeds/?/bet3000/en/Europe:Berlin/gismo/event_fullfeed/-1';
 
   getMatchesFeed() {
-    let apiURL = `${this.configUrl}?callback=JSONP_CALLBACK`; 
-    return this.http.jsonp(apiURL, 'callback');
-    //return this.http.get(this.configUrl);
+     return this.http.get(this.configUrl);
   }
   
   getMatches(): Observable<Match[]> {
@@ -27,11 +25,10 @@ export class MatchService {
     return of(MATCHES.find(match => match.Id == id));
   }
 
-  updateMatch(match: Match): Match {
-    //return of(MATCHES.find(match => match.Id == match.Id));
+  updateMatch(match: Match): void {
     let foundMatch = MATCHES.find(foundedMatch => foundedMatch.Id == match.Id);
-    foundMatch = match;
-    return foundMatch;
+    let foundMatchIndex = MATCHES.indexOf(foundMatch);
+    MATCHES[foundMatchIndex] = match;
   }
 
 }

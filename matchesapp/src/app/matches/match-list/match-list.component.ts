@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import 'rxjs/add/operator/map';
 
 import { MatchService } from '../shared/match.service';
 import { Match } from '../shared/match';
@@ -21,7 +22,10 @@ export class MatchListComponent implements OnInit {
   }
 
   getMatchesFeed(): void {
-    this.matchService.getMatchesFeed();
+    this.matchService.getMatchesFeed()
+      .subscribe(feed  => {
+        console.log(feed);
+      });
   }
 
   getMatches(): void {
