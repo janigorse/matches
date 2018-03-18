@@ -1,4 +1,4 @@
 export class Period {
-    PeriodHome: number;
-    PeriodAway: number
+  PeriodHome: number;
+  PeriodAway: number;
 }

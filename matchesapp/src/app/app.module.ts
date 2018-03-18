@@ -1,19 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
-
-import { AppComponent } from './app.component';
-import { MatchesModule} from './matches/matches.module';
-import { AppRoutingModule } from './app-routing.module';
-
+import { AppComponent } from "./app.component";
+import { MatchesModule } from "./matches/matches.module";
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     NgbModule.forRoot(),
     MatchesModule,
     AppRoutingModule
@@ -21,4 +17,4 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

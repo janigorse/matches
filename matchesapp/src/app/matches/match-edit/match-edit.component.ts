@@ -1,34 +1,33 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
-import { MatchService } from '../shared/match.service';
-import { Match } from '../shared/match';
+import { MatchService } from "../shared/match.service";
+import { Match } from "../shared/match";
 
 @Component({
-  selector: 'app-match-edit',
-  templateUrl: './match-edit.component.html',
-  styleUrls: ['./match-edit.component.css']
+  selector: "app-match-edit",
+  templateUrl: "./match-edit.component.html",
+  styleUrls: ["./match-edit.component.css"]
 })
 export class MatchEditComponent implements OnInit {
   match: Match;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private matchService: MatchService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getMatch();
   }
 
   getMatch(): void {
-    const id = +this.route.snapshot.paramMap.get('Id');
-    this.matchService.getMatch(id)
-    .subscribe(matchFromService => {
+    const id = +this.route.snapshot.paramMap.get("Id");
+    this.matchService.getMatch(id).subscribe(matchFromService => {
       this.match = this.constructNewMatch(matchFromService);
-    }); 
+    });
   }
 
   save(): void {
@@ -37,7 +36,7 @@ export class MatchEditComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/matches']);
+    this.router.navigate(["/matches"]);
   }
 
   constructNewMatch(match: Match): Match {
@@ -54,5 +53,4 @@ export class MatchEditComponent implements OnInit {
     newMatch.Periods = match.Periods;
     return newMatch;
   }
-
 }

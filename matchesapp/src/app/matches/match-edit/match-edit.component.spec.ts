@@ -1,17 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MatchEditComponent } from './match-edit.component';
+import { MatchEditComponent } from "./match-edit.component";
 
-describe('MatchEditComponent', () => {
+describe("MatchEditComponent", () => {
   let component: MatchEditComponent;
   let fixture: ComponentFixture<MatchEditComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MatchEditComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [MatchEditComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MatchEditComponent);
@@ -19,7 +20,7 @@ describe('MatchEditComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

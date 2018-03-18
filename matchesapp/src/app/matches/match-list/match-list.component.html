@@ -20,21 +20,20 @@
         <td class="text-center align-middle">{{ match.CategoryName }}</td>
         <td class="text-center align-middle">{{ match.TournamentName }}</td>
         <td class="text-center align-middle">{{ match.MatchResultHome }} : {{ match.MatchResultAway }}</td>
-        <td class="text-center">
+        <td class="text-center align-middle">
           <span *ngFor="let period of match.Periods">
-              <p>{{ period.PeriodHome}} : {{period.PeriodAway}}</p>
+            <p>{{ period.PeriodHome}} : {{period.PeriodAway}}</p>
           </span>
-          
+
         </td>
-        
-          <td class="text-center align-middle">
-              <button type="button" class="btn btn-link" (click)="editMatch(match.Id)">
-                  <i class="far fa-edit"></i>
-              </button>
-          </td>
-        
+
+        <td class="text-center align-middle">
+          <button type="button" class="btn btn-link" (click)="editMatch(match.Id)">
+            <i class="far fa-edit"></i>
+          </button>
+        </td>
+
       </tr>
     </tbody>
   </table>
 </div>
-

@@ -1,82 +1,85 @@
 <div class="container">
-  
-      <div class="col-md-6 offset-md-3">
-          <div class="card card-outline-secondary ">
-              <div class="card-header text-white bg-dark">
-                  <h2>Edit</h2>
+
+  <div class="col-md-6 offset-md-3">
+    <div class="card card-outline-secondary ">
+      <div class="card-header text-white bg-dark">
+        <h2>Edit</h2>
+      </div>
+      <div class="card-body">
+        <form #matchForm="ngForm" novalidate>
+          <div class="form-group row">
+            <label for="TeamHome" class="col-sm-4 col-form-label text-right">Home team:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="TeamHome" name="TeamHome" [(ngModel)]="match.TeamHome" #TeamHome="ngModel" required
+                minlength="4">
+              <div *ngIf="TeamHome.invalid && (TeamHome.dirty || TeamHome.touched)" class="alert alert-danger">
+                <div *ngIf="TeamHome.errors.minlength">
+                  Name must be at least 4 characters long.
+                </div>
               </div>
-              <div class="card-body">
-                  <form #matchForm="ngForm" novalidate>
-                      <div class="form-group row">
-                        <label for="TeamHome" class="col-sm-4 col-form-label text-right">Home team:</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="TeamHome" name="TeamHome" [(ngModel)]="match.TeamHome" #TeamHome = "ngModel" required minlength="4" >
-                          <div *ngIf="TeamHome.invalid && (TeamHome.dirty || TeamHome.touched)" class="alert alert-danger">
-                            <div *ngIf="TeamHome.errors.minlength">
-                              Name must be at least 4 characters long.
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-                     
-                      <div class="form-group row">
-                        <label for="TeamAway" class="col-sm-4 col-form-label text-right">Away team:</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="TeamAway" name="TeamAway" [(ngModel)]="match.TeamAway" required >
-                        </div>
-                      </div>
-                    
-                      <div class="form-group row">
-                        <label for="Sport" class="col-sm-4 col-form-label text-right">Sport:</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="SportName" name="SportName" [(ngModel)]="match.SportName" required >
-                        </div>
-                      </div>
-                    
-                    
-                      <div class="form-group row">
-                        <label for="Tournament" class="col-sm-4 col-form-label text-right">Tournament:</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="TournamentName" name="TournamentName" [(ngModel)]="match.TournamentName" required >
-                        </div>
-                      </div>
-                    
-                      <div class="form-group row">
-                          <label for="Category" class="col-sm-4 col-form-label text-right">Category:</label>
-                          <div class="col-sm-6">
-                            <input type="text" class="form-control" id="CategoryName" name="CategoryName" [(ngModel)]="match.CategoryName" required >
-                          </div>
-                      </div>
-                    
-                      <div class="form-group row">
-                          <label for="MatchResultHome" class="col-sm-4 col-form-label text-right">Final home result:</label>
-                          <div class="col-sm-6">
-                            <input type="number" class="form-control" id="MatchResultHome" name="MatchResultHome" [(ngModel)]="match.MatchResultHome" required >
-                          </div>
-                      </div>
-                    
-                      <div class="form-group row">
-                          <label for="MatchResultAway" class="col-sm-4 col-form-label text-right">Final home result:</label>
-                          <div class="col-sm-6">
-                            <input type="number" class="form-control" id="MatchResultAway" name="MatchResultAway" [(ngModel)]="match.MatchResultAway" required >
-                          </div>
-                      </div>
-                    
-                      <div class="form-group row">
-                        <div class="col-sm-4">
-                        </div>
-                        <div class="col-sm-6">
-                            <button type="submit" class="btn btn-danger" (click)="goBack()">Cancel</button>
-                          <button type="submit" class="btn btn-success" [disabled]="!matchForm.form.valid" (click)="save()">Save</button>
-                        </div>
-                      </div>
-                    </form>
-              </div>
+
+            </div>
           </div>
 
+          <div class="form-group row">
+            <label for="TeamAway" class="col-sm-4 col-form-label text-right">Away team:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="TeamAway" name="TeamAway" [(ngModel)]="match.TeamAway" required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="Sport" class="col-sm-4 col-form-label text-right">Sport:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="SportName" name="SportName" [(ngModel)]="match.SportName" required>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="Tournament" class="col-sm-4 col-form-label text-right">Tournament:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="TournamentName" name="TournamentName" [(ngModel)]="match.TournamentName" required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="Category" class="col-sm-4 col-form-label text-right">Category:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="CategoryName" name="CategoryName" [(ngModel)]="match.CategoryName" required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="MatchResultHome" class="col-sm-4 col-form-label text-right">Final home result:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="MatchResultHome" name="MatchResultHome" [(ngModel)]="match.MatchResultHome"
+                required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="MatchResultAway" class="col-sm-4 col-form-label text-right">Final home result:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="MatchResultAway" name="MatchResultAway" [(ngModel)]="match.MatchResultAway"
+                required>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-danger" (click)="goBack()">Cancel</button>
+              <button type="submit" class="btn btn-success" [disabled]="!matchForm.form.valid" (click)="save()">Save</button>
+            </div>
+          </div>
+        </form>
       </div>
-      
-  
-    
+    </div>
+
+  </div>
+
+
+
 </div>
