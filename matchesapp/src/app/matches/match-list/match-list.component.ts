@@ -24,6 +24,7 @@ export class MatchListComponent implements OnInit {
     this.matches = [];
     this.matchService.getMatchesFeed().subscribe(matches => {
       this.matches = matches;
+      console.log(this.matches.splice(1, 5));
     });
   }
 

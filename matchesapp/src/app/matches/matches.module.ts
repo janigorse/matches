@@ -3,8 +3,6 @@ import { CommonModule } from "@angular/common";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./shared/in-memory-data.service";
 
 import { MatchService } from "./shared/match.service";
 import { MatchListComponent } from "./match-list/match-list.component";
