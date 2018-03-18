@@ -1,7 +1,7 @@
 import { Match } from "./match";
 import { Period } from "./period";
 
-export let MATCHES: Match[] = [];
+export const MATCHES: Match[] = [];
 /*
 export const MATCHES: Match[] = [
   {
